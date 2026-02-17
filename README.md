@@ -54,7 +54,7 @@ This script is the main script of the analysis. It performs the following steps:
 3.  **Hard Filtering:** Creates two filtered datasets based on different Genotype Quality (GQ) thresholds:
     * **Set 1:** GQ $\ge$ 15
     * **Set 2:** GQ $\ge$ 10
-    * *Common Filters:* Max missing 10%, Min Depth 5, Max Depth 27, MAF 0.033.
+    * *Common Filters:* Max missing 10%, Min Depth 5, Max Depth 27, MAF $\ge$ 0.033.
 4.  **$D_{xy}$ Calculation:** Runs `pixy` on both datasets using multiple window sizes (10kb, 50kb, and 100kb).
 ---
 
