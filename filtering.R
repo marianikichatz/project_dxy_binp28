@@ -8,7 +8,7 @@ library(dplyr)
 
 # quality 
 
-var_qual <- read_delim("./quality_site.lqual", delim = "\t",
+var_qual <- read_delim("Stats/quality_site.lqual", delim = "\t",
            col_names = c("chr", "pos", "qual"), skip = 1)
 
 a <- ggplot(var_qual, aes(qual)) + geom_density(fill = "pink", colour = "black", alpha = 0.3)
@@ -18,7 +18,7 @@ summary(var_qual$qual)
 
 # depth
 
-var_depth <- read_delim("./depth_site.ldepth.mean", delim = "\t",
+var_depth <- read_delim("Stats/depth_site.ldepth.mean", delim = "\t",
             col_names = c("chr", "pos", "mean_depth", "var_depth"), skip = 1)
 
 b <- ggplot(var_depth, aes(mean_depth)) + geom_density(fill = "plum", colour = "black", alpha = 0.3)
@@ -28,7 +28,7 @@ summary(var_depth$mean_depth) # min=5 max=27
 
 # missing data 
 
-var_miss <- read_delim("./missing_site.lmiss", delim = "\t",
+var_miss <- read_delim("Stats/missing_site.lmiss", delim = "\t",
                        col_names = c("chr", "pos", "nchr", "nfiltered", "nmiss", "fmiss"), skip = 1)
 
 c <- ggplot(var_miss, aes(fmiss)) + geom_density(fill = "yellow", colour = "black", alpha = 0.3)
@@ -37,7 +37,7 @@ c + theme_light() + xlim(0, 0.1)
 summary(var_miss$fmiss) # min 5% or 10%
 
 # Maf
-var_freq <- read_delim("./max_al.frq", delim = "\t",
+var_freq <- read_delim("Stats/max_al.frq", delim = "\t",
                        col_names = c("chr", "pos", "nalleles", "nchr", "a1", "a2"), skip = 1)
 
 var_freq$maf <- var_freq %>% select(a1, a2) %>% apply(1, function(z) min(z))
@@ -51,7 +51,7 @@ summary(var_freq$maf) # >=0.03
 # Per individual 
 
 # depth
-ind_depth <- read_delim("./depth_ind.idepth", delim = "\t",
+ind_depth <- read_delim("Stats/depth_ind.idepth", delim = "\t",
                         col_names = c("ind", "nsites", "depth"), skip = 1)
 
 d <- ggplot(ind_depth, aes(depth)) + geom_histogram(fill = "darkgreen", colour = "black", alpha = 0.3)
@@ -61,7 +61,7 @@ summary(ind_depth$depth)
 
 # missing data 
 
-ind_miss  <- read_delim("./missing_ind.imiss", delim = "\t",
+ind_miss  <- read_delim("Stats/missing_ind.imiss", delim = "\t",
                         col_names = c("ind", "ndata", "nfiltered", "nmiss", "fmiss"), skip = 1)
 
 e <- ggplot(ind_miss, aes(fmiss)) + geom_histogram(fill = "magenta4", colour = "black", alpha = 0.3)
