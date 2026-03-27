@@ -16,7 +16,7 @@ The pipeline takes raw VCF data, cleans it up, calculates divergence in sliding 
 
 There are three main scripts that work together. Here is what each one does:
 
-### 1. `project_dxy.sh` (The Main Pipeline)
+### 1. `project_dxy.sh` (The Main Pipeline)s
 
 This is the main script. It handles the entire workflow from raw data to final statistics:
 

@@ -19,3 +19,8 @@
 *.tar.gz
 
 *.tab
+
+data/
+results/
+*.Rhistory
+doc/
